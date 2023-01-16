@@ -25,7 +25,7 @@ module.exports.MessageMailer = async function (email, name, checkIn, room) {
 
   let details = {
     from: "styles132001@gmail.com",
-    to: "psxw2001@gmail.com",
+    to: email,
     subject: "MrStudio Hotel",
     text: `Dear ${name}, Thank you for choosing to stay with us at MrStudio Hotel! We are excited to have you as our guest from ${date.toDateString()}. Room type "${RoomChoose(
       room
@@ -37,7 +37,7 @@ module.exports.MessageMailer = async function (email, name, checkIn, room) {
     if (err) {
       console.log(err);
     } else {
-      console.log("Email successfully sent.");
+      console.log(`Email successfully sent to ${email}.`);
     }
   });
 };
