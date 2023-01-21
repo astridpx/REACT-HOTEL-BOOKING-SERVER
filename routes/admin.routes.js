@@ -13,7 +13,9 @@ router.post("/", async (req, res) => {
       const token = jwt.sign({ _id: this.id }, process.env.JWTPRIVATEKEY, {
         expiresIn: "24h",
       });
-      res.json({ token: token, user: emailLogin.email });
+      res.json({ token: token, user: emailLogin.email, isAdmin: true });
+    } else {
+      res.json({ isAdmin: false });
     }
   } catch (error) {
     throw error;
